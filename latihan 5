@@ -1,0 +1,22 @@
+import re
+from datetime import date
+
+teks = "Pada tanggal 1945-08-17 Indonesia merdeka. Indonesia memiliki beberapa pahlawan nasional, seperti Pangeran Diponegoro (TL: 1785-11-11), Pattimura (TL: 1783-06-08) dan Ki Hajar Dewantara (1889-05-02)."
+
+pola = r'\d{4}-\d{2}-\d{2}'
+tanggal_ditemukan = re.findall(pola, teks)
+
+hari_ini = date.today()
+
+for tgl in tanggal_ditemukan:
+    tahun, bulan, hari = tgl.split('-')
+    tgl_ddmmyyyy = f"{hari}-{bulan}-{tahun}"
+
+    tahun_int = int(tahun)
+    bulan_int = int(bulan)
+    hari_int = int(hari)
+    
+    tgl_obj = date(tahun_int, bulan_int, hari_int)
+    selisih = (hari_ini - tgl_obj).days
+    
+    print(f"{tgl} {tgl_obj.strftime('%H:%M:%S')} selisih {selisih} hari")
