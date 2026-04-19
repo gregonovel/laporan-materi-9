@@ -1,0 +1,14 @@
+kalimat = input("Masukkan kalimat: ")
+kata = kalimat.split()
+
+terpendek = kata[0]
+terpanjang = kata[0]
+
+for k in kata:
+    if len(k) < len(terpendek):
+        terpendek = k
+    if len(k) > len(terpanjang):
+        terpanjang = k
+
+print("Terpendek:", terpendek)
+print("Terpanjang:", terpanjang)
