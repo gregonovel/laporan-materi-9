@@ -1,0 +1,19 @@
+def hitung_frekuensi(kalimat, kata_cari):
+    kalimat = kalimat.lower()
+    kata_cari = kata_cari.lower()
+    
+    tanda_baca = [".", ",", "!", "?", ";", ":", "'", '"', "(", ")", "[", "]"]
+    for tanda in tanda_baca:
+        kalimat = kalimat.replace(tanda, " ")
+    
+    daftar_kata = kalimat.split()
+    
+    jumlah = daftar_kata.count(kata_cari)
+    
+    return jumlah
+
+kalimat = input("Masukkan kalimat: ")
+kata = input("Masukkan kata yang dicari: ")
+
+hasil = hitung_frekuensi(kalimat, kata)
+print(f"\nKata '{kata}' muncul sebanyak {hasil} buah")
