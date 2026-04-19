@@ -1,0 +1,16 @@
+import re
+import random
+
+teks = "anton@mail.com budi@gmail.co.id slamet@getnada.com matahari@tokopedia.com"
+
+email = re.findall(r'\w+@\w+\.\w+', teks)
+
+for e in email:
+    username = e.split('@')[0]
+
+    karakter = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+    password = ''
+    for i in range(8):
+        password = password + random.choice(karakter)
+    
+    print(f"{e} username: {username}, password: {password}")
